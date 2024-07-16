@@ -1,0 +1,20 @@
+impl Solution {
+    pub fn search(nums: Vec<i32>, target: i32) -> i32 {
+        let mut left = 0;
+        let mut right = nums.len() -1;
+        while left <= right {
+            let mut mid = left+ (right-left)/2;
+            if nums[left] == target {return left as i32;}
+            if nums[right] == target {return right as i32;}
+            if nums[mid] == target {
+                return mid as i32;
+            } else if nums[mid] < target {
+                left = mid + 1;
+            } else {
+                if mid == 0 {return -1;} 
+                right = mid - 1;
+            }
+        };
+        return -1; 
+    }
+}
