@@ -6,6 +6,6 @@ impl Solution {
             curr_sum = std::cmp::max(curr_sum + nums[i], nums[i]);
             max_sum = std::cmp::max(curr_sum, max_sum);
         }
-        return max_sum;
+        max_sum
     }
 }
