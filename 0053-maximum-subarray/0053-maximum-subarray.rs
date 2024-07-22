@@ -4,8 +4,14 @@ impl Solution {
         let mut max_sum = nums[0];
         let n = nums.len();
         for i in 1..n {
-            curr_sum = std::cmp::max(curr_sum + nums[i], nums[i]);
-            max_sum = std::cmp::max(curr_sum, max_sum);
+            if (curr_sum + nums[i]) > nums[i] {
+                curr_sum = curr_sum + nums[i];
+            } else {
+                curr_sum = nums[i];
+            }
+            if max_sum < curr_sum {
+                max_sum = curr_sum;
+            }
         }
         max_sum
     }
