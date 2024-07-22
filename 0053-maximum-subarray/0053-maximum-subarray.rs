@@ -4,13 +4,16 @@ impl Solution {
         let mut max_sum = nums[0];
         let n = nums.len();
         for i in 1..n {
-            if curr_sum <= 0 {
-                curr_sum = 0;
-            } 
-            curr_sum = curr_sum + nums[i];
-            if max_sum < curr_sum {
-                max_sum = curr_sum;
-            }
+//             if curr_sum <= 0 {
+//                 curr_sum = 0;
+//             } 
+//             curr_sum = curr_sum + nums[i];
+            
+//             if max_sum < curr_sum {
+//                 max_sum = curr_sum;
+//             }
+            curr_sum = std::cmp::max(0,curr_sum)+nums[i];
+            max_sum = std::cmp::max(max_sum,curr_sum);
         }
         max_sum
     }
